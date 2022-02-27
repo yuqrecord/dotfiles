@@ -98,6 +98,9 @@ Plug 'rust-lang/rust.vim'
 "] Markdown preview
 Plug 'skanehira/preview-markdown.vim'
 
+"] Cursor motion
+Plug 'skanehira/jumpcursor.vim'
+
 "] Display indent
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -200,6 +203,13 @@ let g:deoplete#enable_at_startup = 1
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
 let g:rustfmt_autosave = 1
+
+
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.8] skanehira/preview-markdown.vim
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+nmap <c-g><c-j> <Plug>(jumpcursor-jump)
 
 
 
@@ -669,7 +679,7 @@ augroup tex_files
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap { {}<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap [ []<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap $ $$<Left>
-  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k><c-k> \documentclass[a4paper,dvipdfmx]{jsarticle}<CR><CR>\usepackage{amsmath,amssymb}<CR>\usepackage{newtxtext,newtxmath}<CR>\usepackage{bm}<CR>\usepackage{physics}<CR>\usepackage{float}<CR>\usepackage{graphicx}<CR>\usepackage{color}<CR><CR>\graphicspath{{./images/}}<CR><CR>\newcommand{\memo}[1]{\textcolor{blue}{#1}}<CR><CR>\begin{document}<CR>\end{document}<ESC>
+  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k><c-k> \documentclass[a4paper,dvipdfmx,11pt]{jsarticle}<CR><CR>\usepackage{amsmath,amssymb}<CR>\usepackage{newtxtext,newtxmath}<CR>\usepackage{bm}<CR>\usepackage{physics}<CR>\usepackage{float}<CR>\usepackage{graphicx}<CR>\usepackage{color}<CR>\usepackage{hyperref}<CR>\usepackage{pxjahyper}<CR>\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=cyan,citecolor=cyan}<CR><CR>\graphicspath{{./images/}}<CR><CR>\begin{document}<CR>\end{document}<ESC>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k><c-t> \title{}<CR>\author{}<CR>\date{}<CR>\maketitle<ESC>3k$i
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>u \usepackage{}<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>e \begin{equation}<CR>\end{equation}<ESC><s-o>
