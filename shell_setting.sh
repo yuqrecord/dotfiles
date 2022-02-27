@@ -10,6 +10,73 @@ function confirm_exit() {
 }
 
 
+#] Make a directory having date name
+function mkdirdate() {
+  if [ $# -eq 0 ]; then
+    mkdir $(date +%Y-%m-%d)
+  elif [ $# -eq 1 ]; then
+    if echo $1 | grep -q -v "^[-+]\?[1-9][0-9]*$" ; then
+      echo "Usage: mkdirdate [integer]" 1>&2
+      return 1
+    fi
+    if [ $(uname) = 'Darwin' ]; then
+      day=$1
+      # if [ $(echo $1 | grep -q -v "^-") -a $(echo $1 | grep -q "^+") ]; then
+      if echo $1 | grep -q -v "^[-+]"; then
+        day=$(echo $1 | sed "s/^/+/")
+      else
+        day=$1
+      fi
+      mkdir $(date -v${day}d +%Y-%m-%d)
+    else
+      if echo $1 | grep -q "^-" ; then
+        day=$(echo $1 | sed "s/-//")
+        mkdir $(date -d "${day} days ago" +%Y-%m-%d)
+      else
+        day=$(echo $1 | sed "s/+//")
+        mkdir $(date -d "${day} days" +%Y-%m-%d)
+      fi
+    fi
+  else
+    echo "Usage: mkdirdate [integer]" 1>&2
+    return 1
+  fi
+}
+
+#] Change a directory to the one having date name
+function cddate() {
+  if [ $# -eq 0 ]; then
+    cd $(date +%Y-%m-%d)
+  elif [ $# -eq 1 ]; then
+    if echo $1 | grep -q -v "^[-+]\?[1-9][0-9]*$" ; then
+      echo "Usage: cddate [integer]" 1>&2
+      return 1
+    fi
+    if [ $(uname) = 'Darwin' ]; then
+      day=$1
+      # if [ $(echo $1 | grep -q -v "^-") -a $(echo $1 | grep -q "^+") ]; then
+      if echo $1 | grep -q -v "^[-+]"; then
+        day=$(echo $1 | sed "s/^/+/")
+      else
+        day=$1
+      fi
+      cd $(date -v${day}d +%Y-%m-%d)
+    else
+      if echo $1 | grep -q "^-" ; then
+        day=$(echo $1 | sed "s/-//")
+        cd $(date -d "${day} days ago" +%Y-%m-%d)
+      else
+        day=$(echo $1 | sed "s/+//")
+        cd $(date -d "${day} days" +%Y-%m-%d)
+      fi
+    fi
+  else
+    echo "Usage: cddate [integer]" 1>&2
+    return 1
+  fi
+}
+
+
 
 #] Aliases
 alias ls='ls -F'
@@ -32,6 +99,7 @@ alias ctags='`brew --prefix`/bin/ctags'
 alias grep='grep --color=auto'
 alias mps='ps aux | head -n 1 ; ps aux | grep $(whoami)'
 alias date8digits='date "+%Y%m%d"'
+alias today='date "+%Y-%m-%d"'
 if [ $(uname) = 'Darwin' ]; then
   alias sed='gsed'
 fi
