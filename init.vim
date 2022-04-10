@@ -674,7 +674,6 @@ augroup tex_files
   endif
   autocmd BufRead,BufNewFile,WinEnter *.tex nnoremap f :set<Space>spell<CR>
   autocmd BufRead,BufNewFile,WinEnter *.tex nnoremap F :set<Space>nospell<CR>
-  autocmd BufRead,BufNewFile,WinEnter *.tex nnoremap <c-n> :1,$s/。/．/g<CR>:1,$s/、/，/g<CR>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap ( ()<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap { {}<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap [ []<Left>
