@@ -9,14 +9,13 @@ function confirm_exit() {
   fi
 }
 
-
-#] Make a directory having date name
-function mkdirdate() {
+#] Print a string haveing date name
+function echodate() {
   if [ $# -eq 0 ]; then
-    mkdir $(date +%Y-%m-%d)
+    echo $(date +%Y-%m-%d)
   elif [ $# -eq 1 ]; then
     if echo $1 | grep -q -v "^[-+]\?[1-9][0-9]*$" ; then
-      echo "Usage: mkdirdate [integer]" 1>&2
+      echo "Usage: echodate [integer]" 1>&2
       return 1
     fi
     if [ $(uname) = 'Darwin' ]; then
@@ -27,16 +26,32 @@ function mkdirdate() {
       else
         day=$1
       fi
-      mkdir $(date -v${day}d +%Y-%m-%d)
+      echo $(date -v${day}d +%Y-%m-%d)
     else
       if echo $1 | grep -q "^-" ; then
         day=$(echo $1 | sed "s/-//")
-        mkdir $(date -d "${day} days ago" +%Y-%m-%d)
+        echo $(date -d "${day} days ago" +%Y-%m-%d)
       else
         day=$(echo $1 | sed "s/+//")
-        mkdir $(date -d "${day} days" +%Y-%m-%d)
+        echo $(date -d "${day} days" +%Y-%m-%d)
       fi
     fi
+  else
+    echo "Usage: echodate [integer]" 1>&2
+    return 1
+  fi
+}
+
+#] Make a directory having date name
+function mkdirdate() {
+  if [ $# -eq 0 ]; then
+    mkdir -v $(echodate)
+  elif [ $# -eq 1 ]; then
+    if echo $1 | grep -q -v "^[-+]\?[1-9][0-9]*$" ; then
+      echo "Usage: mkdirdate [integer]" 1>&2
+      return 1
+    fi
+    mkdir -v $(echodate $1)
   else
     echo "Usage: mkdirdate [integer]" 1>&2
     return 1
@@ -46,30 +61,13 @@ function mkdirdate() {
 #] Change a directory to the one having date name
 function cddate() {
   if [ $# -eq 0 ]; then
-    cd $(date +%Y-%m-%d)
+    cd $(echodate)
   elif [ $# -eq 1 ]; then
     if echo $1 | grep -q -v "^[-+]\?[1-9][0-9]*$" ; then
       echo "Usage: cddate [integer]" 1>&2
       return 1
     fi
-    if [ $(uname) = 'Darwin' ]; then
-      day=$1
-      # if [ $(echo $1 | grep -q -v "^-") -a $(echo $1 | grep -q "^+") ]; then
-      if echo $1 | grep -q -v "^[-+]"; then
-        day=$(echo $1 | sed "s/^/+/")
-      else
-        day=$1
-      fi
-      cd $(date -v${day}d +%Y-%m-%d)
-    else
-      if echo $1 | grep -q "^-" ; then
-        day=$(echo $1 | sed "s/-//")
-        cd $(date -d "${day} days ago" +%Y-%m-%d)
-      else
-        day=$(echo $1 | sed "s/+//")
-        cd $(date -d "${day} days" +%Y-%m-%d)
-      fi
-    fi
+    cd $(echodate $1)
   else
     echo "Usage: cddate [integer]" 1>&2
     return 1
