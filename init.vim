@@ -101,6 +101,9 @@ Plug 'skanehira/preview-markdown.vim'
 "] Cursor motion
 Plug 'skanehira/jumpcursor.vim'
 
+"] Formatter for Python
+Plug 'tell-k/vim-autopep8'
+
 "] Display indent
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -206,11 +209,17 @@ let g:rustfmt_autosave = 1
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
-"1.3.8] skanehira/preview-markdown.vim
+"1.3.9] skanehira/preview-markdown.vim
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
 nmap <c-g><c-j> <Plug>(jumpcursor-jump)
 
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.10] tell-k/vim-autopep8
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+let g:autopep8_disable_show_diff = 1
+let g:autopep8_on_save = 1
 
 
 
