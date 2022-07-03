@@ -74,6 +74,29 @@ function cddate() {
   fi
 }
 
+#] Create a new jupyter file
+function create-ipynb() {
+  if [ $# -ne 1 ]; then
+    echo "Error: a file name is necessary." 1>&2
+    return 1
+  fi
+  file_name_stem=$1
+  ipynb_file="$file_name_stem.ipynb"
+  if [ -e $ipynb_file ]; then
+    echo "Error: $ipynb_file already exists." 1>&2
+    return 1
+  fi
+  temp_dir=$(mktemp -d)
+  temp_md_file="$temp_dir/${file_name_stem}.md"
+  temp_ipynb_file="$temp_dir/$ipynb_file"
+  echo "#Title" > $temp_md_file
+  jupytext --set-kernel - $temp_md_file
+  jupytext --set-formats md:myst $temp_md_file
+  jupytext --to notebook --execute $temp_md_file
+  mv $temp_ipynb_file .
+  rm -rf $temp_dir
+}
+
 
 
 #] Aliases

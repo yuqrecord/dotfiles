@@ -28,9 +28,14 @@
 反映方法は以下の通り。
 1. `link_setting_files_in_windows.bat` を管理者として実行
 
+## Python パッケージのインストール
+
+```sh
+pip install -r requirements_py.txt
+```
+
 ## インストールが必要なもの
 - [Neovim](https://neovim.io)
 - [MichaelMure/mdr](https://github.com/MichaelMure/mdr)
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [universal-ctags](https://github.com/universal-ctags/ctags)
-- [autopep8](https://pypi.org/project/autopep8/)

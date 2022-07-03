@@ -104,6 +104,12 @@ Plug 'skanehira/jumpcursor.vim'
 "] Formatter for Python
 Plug 'tell-k/vim-autopep8'
 
+"] To deal jupyter notebook with vim
+Plug 'goerz/jupytext.vim'
+
+"] For jupyter notebook
+Plug 'jupyter-vim/jupyter-vim'
+
 "] Display indent
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -221,6 +227,12 @@ nmap <c-g><c-j> <Plug>(jumpcursor-jump)
 let g:autopep8_disable_show_diff = 1
 let g:autopep8_on_save = 1
 
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.11] goerz/jupytext.vim
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+let g:jupytext_fmt = 'py:percent'
+let g:jupytext_filetype_map = {'py': 'python'}
 
 
 " ] ==========================================================================================================================
