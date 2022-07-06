@@ -1,3 +1,6 @@
+let mapleader = ","
+let maplocalleader = "\<SPACE>"
+
 " ] ==========================================================================================================================
 " ]
 "1] Plugins
@@ -149,6 +152,7 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMapOpenSplit='h'
 let g:NERDTreeMapPreviewVSplit='gh'
 let g:NERDTreeMenuUp='i'
+nnoremap <Leader>e :NERDTreeToggle<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
@@ -156,13 +160,14 @@ let g:NERDTreeMenuUp='i'
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
 let g:tagbar_map_togglecaseinsensitive='u'
+nnoremap <Leader>t :TagbarToggle<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
 "1.3.3] Winresizer
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
-let g:winresizer_start_key='<c-g><c-r>'
+let g:winresizer_start_key='<Leader>r'
 
 "] j: Right
 "] l: Left (default)
@@ -179,6 +184,7 @@ let g:winresizer_keycode_down = 107
 
 " let g:ale_cursor_detail = 1
 let g:ale_detail_to_floating_preview = 1
+nnoremap <Leader>a :ALEDetail<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
@@ -218,7 +224,7 @@ let g:rustfmt_autosave = 1
 "1.3.9] skanehira/preview-markdown.vim
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
-nmap <c-g><c-j> <Plug>(jumpcursor-jump)
+nmap <Leader>j <Plug>(jumpcursor-jump)
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
 "1.3.10] tell-k/vim-autopep8
@@ -383,15 +389,6 @@ nnoremap <c-h> :tab sp<CR> :exe("tjump ".expand('<cword>'))<CR>
 "] <c-n>: next
 nnoremap <c-p> gT
 nnoremap <c-n> gt
-
-"] Open a NERDTree window
-nnoremap <c-g><c-e> :NERDTreeToggle<CR>
-
-"] Open a Tagbar window
-nnoremap <c-g><c-t> :TagbarToggle<CR>
-
-"] Open an ale detail window
-nnoremap <c-g><c-a> :ALEDetail<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
