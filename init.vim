@@ -268,6 +268,7 @@ let g:is_bash = 1
 if has('nvim')
   set background=dark
   colorscheme hybrid
+  nnoremap <Leader>c :highlight Normal ctermbg=none<CR>:highlight CursorLine ctermbg=none<CR>
 endif
 
 "] Color of comment lines
