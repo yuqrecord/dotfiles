@@ -116,12 +116,12 @@ alias vir='vim -R'
 alias duu='du -h --max-depth=1'
 alias python='python3 -B'
 alias py='python3 -B'
-alias ctags='`brew --prefix`/bin/ctags'
 alias grep='grep --color=auto'
 alias mps='ps aux | head -n 1 ; ps aux | grep $(whoami)'
 alias date8digits='date "+%Y%m%d"'
 alias today='date "+%Y-%m-%d"'
 if [ $(uname) = 'Darwin' ]; then
+  alias ctags='`brew --prefix`/bin/ctags'
   alias sed='gsed'
 fi
 
