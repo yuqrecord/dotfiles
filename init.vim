@@ -56,6 +56,10 @@ endif
 "] Filer
 Plug 'preservim/nerdtree'
 
+"] Plugins related to nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
+
 "] Easy comment out
 Plug 'tomtom/tcomment_vim'
 
@@ -152,7 +156,8 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMapOpenSplit='h'
 let g:NERDTreeMapPreviewVSplit='gh'
 let g:NERDTreeMenuUp='i'
-nnoremap <Leader>e :NERDTreeToggle<CR>
+" nnoremap <Leader>e :NERDTreeTabsToggle<CR>
+nnoremap <Leader>e :NERDTreeMirrorToggle<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
@@ -184,7 +189,10 @@ let g:winresizer_keycode_down = 107
 
 " let g:ale_cursor_detail = 1
 let g:ale_detail_to_floating_preview = 1
-nnoremap <Leader>a :ALEDetail<CR>
+let g:ale_rust_cargo_use_clippy = 1
+nnoremap <Leader>aa :ALEDetail<CR>
+nnoremap <Leader>af :ALENextWrap<CR>
+nnoremap <Leader>ab :ALEPreviousWrap<CR>
 
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
@@ -704,8 +712,8 @@ augroup tex_files
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>a \begin{align}<CR>\end{align}<ESC><s-o>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>i \begin{itemize}<CR>\item<CR>\end{itemize}<ESC><up><s-a><CR>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k><c-e> \begin{enumerate}<CR>\item<CR>\end{enumerate}<ESC><up><s-a><CR>
-  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>f \begin{figure}<CR>\centering<CR>\includegraphics[width=\columnwidth]{}<CR>\caption{}<CR>\label{fig:}<CR>\end{figure}<ESC>3k$i
-  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>t \begin{table}[htbp]<CR>\caption{}<CR>\label{tab:}<CR>\begin{center}<CR>\setlength{\tabcolsep}{3pt}<CR>\footnotesize<CR>\begin{tabular}{ll}<CR>A & B \\ \hline<CR>a1 & b1 \\<CR>a2 & b2 \\<CR>\end{tabular}<CR>\end{center}<CR>\end{table}%
+  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>f \begin{figure}<CR>\centering<CR>\includegraphics[width=\columnwidth]{}<CR>\caption{}%<CR>\label{fig:}<CR>\end{figure}<ESC>3k$i
+  autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>t \begin{table}[htbp]<CR>\caption{}%<CR>\label{tab:}<CR>\begin{center}<CR>\setlength{\tabcolsep}{3pt}<CR>\footnotesize<CR>\begin{tabular}{ll}<CR>A & B \\ \hline<CR>a1 & b1 \\<CR>a2 & b2 \\<CR>\end{tabular}<CR>\end{center}<CR>\end{table}%
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>b \begin{}<CR>\end{}<ESC><up>$i
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>1 \chapter{}<Left>
   autocmd BufRead,BufNewFile,WinEnter *.tex inoremap <c-k>2 \section{}<Left>
