@@ -133,6 +133,10 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 
+#] Change the default editor
+export EDITOR=nvim
+
+
 #] Setting of less command
 if [ $(uname) = 'Linux' ]; then
   lesskey ~/.lesskey
