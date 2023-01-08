@@ -143,6 +143,9 @@ if [ $(uname) = 'Linux' ]; then
   setxkbmap -option ctrl:swapcaps
 fi
 
+#] Setting for rbenv
+[[ -d ~/.rbenv  ]] && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"
+
 
 #] Settings for zsh
 if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
