@@ -141,6 +141,8 @@ export EDITOR=nvim
 if [ $(uname) = 'Linux' ]; then
   lesskey ~/.lesskey
   setxkbmap -option ctrl:swapcaps
+  export GEM_HOME="$HOME/gems"
+  export PATH="$PATH:$HOME/gems/bin"
 fi
 
 #] Setting for rbenv
