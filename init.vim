@@ -190,6 +190,10 @@ let g:winresizer_keycode_down = 107
 " let g:ale_cursor_detail = 1
 let g:ale_detail_to_floating_preview = 1
 let g:ale_rust_cargo_use_clippy = 1
+let g:ale_rust_cargo_check_all_targets = 1
+let g:ale_rust_cargo_check_tests = 1
+let g:ale_rust_cargo_check_examples = 1
+let g:ale_rust_cargo_avoid_whole_workspace = 0
 nnoremap <Leader>aa :ALEDetail<CR>
 nnoremap <Leader>af :ALENextWrap<CR>
 nnoremap <Leader>ab :ALEPreviousWrap<CR>
