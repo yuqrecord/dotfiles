@@ -123,6 +123,9 @@ Plug 'mattn/emmet-vim'
 "] For a root directory of projects
 Plug 'mattn/vim-findroot'
 
+"] Julia
+Plug 'JuliaEditorSupport/julia-vim'
+
 "] Display indent
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
