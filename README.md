@@ -39,3 +39,4 @@ pip install -r requirements_py.txt
 - [MichaelMure/mdr](https://github.com/MichaelMure/mdr)
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [universal-ctags](https://github.com/universal-ctags/ctags)
+- [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)

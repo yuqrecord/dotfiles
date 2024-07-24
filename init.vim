@@ -117,6 +117,9 @@ Plug 'goerz/jupytext.vim'
 "] For jupyter notebook
 Plug 'jupyter-vim/jupyter-vim'
 
+"] Expanding HTML tags
+Plug 'mattn/emmet-vim'
+
 "] Display indent
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -198,6 +201,13 @@ nnoremap <Leader>aa :ALEDetail<CR>
 nnoremap <Leader>af :ALENextWrap<CR>
 nnoremap <Leader>ab :ALEPreviousWrap<CR>
 
+" php-cs-fixerへのパス
+let g:ale_php_php_cs_fixer_executable='/usr/local/bin/php-cs-fixer'
+" phpのコード整形はphp_cs_fixerを利用するように指定(「-」ではなく「_」であるのに注意)
+let g:ale_fixers = {'php': ['php_cs_fixer']}
+" 保存時にコード整形を実行
+let g:ale_fix_on_save = 1
+
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
 "1.3.5] git-gutter
@@ -251,6 +261,12 @@ let g:autopep8_on_save = 1
 
 let g:jupytext_fmt = 'py:percent'
 let g:jupytext_filetype_map = {'py': 'python'}
+
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.12] mattn/emmet-vim
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+let g:user_emmet_leader_key = '<c-g>'
 
 
 " ] ==========================================================================================================================
@@ -786,7 +802,7 @@ augroup END
 
 augroup css_files
   autocmd!
-  autocmd BufRead,BufNewFile,WinEnter *.css inoremap { {<CR>}<ESC><S-o><Tab>
+  autocmd BufRead,BufNewFile,WinEnter *.css inoremap { {<CR>}<ESC><S-o>
 augroup end
 
 
@@ -811,4 +827,23 @@ augroup rust_files
   autocmd BufRead,BufNewFile,WinEnter *.rs inoremap [ []<Left>
   autocmd BufRead,BufNewFile,WinEnter *.rs inoremap <c-k><c-f> for<Space><Space>in<Space><Space>{<CR>}<ESC><Up>4<Right>i
   autocmd BufRead,BufNewFile,WinEnter *.rs inoremap <c-k><c-i> if<Space><Space>{<CR>}<ESC><Up>3<Right>i
+augroup END
+
+
+"   ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"3.14] PHP
+"   ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+augroup h_files
+  autocmd!
+  " autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap { {<CR>}<ESC><S-o>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap { {}<Left>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap ( ()<Left>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap " ""<Left>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap ' ''<Left>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap [ []<Left>
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-f> for<Space>(;<Space>;<Space>)<Space>{<CR>}<ESC><UP>$6<LEFT>i
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-i> if<space>()<space>{<CR>}<ESC><UP>$2<left>i
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-w> while<space>()<space>{<CR>}<ESC><UP>$2<left>i
+  autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-t> try {<CR>} catch (){<CR>}<ESC><UP>$2<LEFT>i
 augroup END
