@@ -1,5 +1,5 @@
 let mapleader = ","
-let maplocalleader = "\<SPACE>"
+let maplocalleader = "\\"
 
 " ] ==========================================================================================================================
 " ]
@@ -119,6 +119,9 @@ Plug 'jupyter-vim/jupyter-vim'
 
 "] Expanding HTML tags
 Plug 'mattn/emmet-vim'
+
+"] For a root directory of projects
+Plug 'mattn/vim-findroot'
 
 "] Display indent
 if has('nvim')
@@ -247,6 +250,7 @@ let g:rustfmt_autosave = 1
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
 nmap <Leader>j <Plug>(jumpcursor-jump)
+let g:preview_markdown_auto_update = 1
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
 "1.3.10] tell-k/vim-autopep8
@@ -267,6 +271,12 @@ let g:jupytext_filetype_map = {'py': 'python'}
 "     ] ----------------------------------------------------------------------------------------------------------------------
 
 let g:user_emmet_leader_key = '<c-g>'
+
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.13] mattn/vim-findroot
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+let g:findroot_not_for_subdir = 0
 
 
 " ] ==========================================================================================================================
@@ -380,6 +390,7 @@ set noundofile
 "] #: Horizontal spliting window
 "] $: Vertical spliting window
 if has('nvim')
+  nnoremap " :tab sp<CR>:terminal<CR>a
   nnoremap # :sp<CR>:terminal<CR>a
   nnoremap $ :vsp<CR>:terminal<CR>a
 else
@@ -846,4 +857,14 @@ augroup h_files
   autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-i> if<space>()<space>{<CR>}<ESC><UP>$2<left>i
   autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-w> while<space>()<space>{<CR>}<ESC><UP>$2<left>i
   autocmd BufRead,BufNewFile,WinEnter *.PHP inoremap <c-k><c-t> try {<CR>} catch (){<CR>}<ESC><UP>$2<LEFT>i
+augroup END
+
+
+"   ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"3.15] Markdown
+"   ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+augroup markdown_files
+  autocmd!
+  autocmd BufRead,BufNewFile,WinEnter *.md nnoremap <c-k><c-o> :PreviewMarkdown<CR>
 augroup END
