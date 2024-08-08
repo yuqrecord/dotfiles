@@ -15,10 +15,19 @@ if [ ! -d ${XDG_CONFIG_HOME}/wezterm ]; then
 fi
 ln -fsn ${SCRIPTPATH}/wezterm.lua ${XDG_CONFIG_HOME}/wezterm/wezterm.lua
 
+
+# Starship
 if [ ! -d ${XDG_CONFIG_HOME} ]; then
   mkdir -p ${XDG_CONFIG_HOME}
 fi
 ln -fsn ${SCRIPTPATH}/starship.toml ${XDG_CONFIG_HOME}/starship.toml
+
+
+# bat
+if [ ! -d ${XDG_CONFIG_HOME}/bat ]; then
+  mkdir -p ${XDG_CONFIG_HOME}/bat
+fi
+ln -fsn ${SCRIPTPATH}/bat_config ${XDG_CONFIG_HOME}/bat/config
 
 
 # Vim
