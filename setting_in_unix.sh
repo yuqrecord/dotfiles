@@ -1,39 +1,47 @@
 #!/bin/bash
 
-#] Unixシステムで以下のファイルのシンボリックリンクを作成するシェルスクリプト。
-#] - .vimrc
-#] - init.vim
-#] - .latexmkrc
-#] - .lesskey
+# Path of this script
+readonly SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-
-#] 環境変数の有無を確認する
+# Check environment variable
 if [ -z ${XDG_CONFIG_HOME} ]; then
   XDG_CONFIG_HOME="${HOME}/.config"
 fi
 
 
-#] Vim
-ln -fsn $(pwd)/init.vim ${HOME}/.vimrc
+# WeZterm
+if [ ! -d ${XDG_CONFIG_HOME}/wezterm ]; then
+  mkdir -p ${XDG_CONFIG_HOME}/wezterm
+fi
+ln -fsn ${SCRIPTPATH}/wezterm.lua ${XDG_CONFIG_HOME}/wezterm/wezterm.lua
+
+if [ ! -d ${XDG_CONFIG_HOME} ]; then
+  mkdir -p ${XDG_CONFIG_HOME}
+fi
+ln -fsn ${SCRIPTPATH}/starship.toml ${XDG_CONFIG_HOME}/starship.toml
 
 
-#] Neovim
+# Vim
+ln -fsn ${SCRIPTPATH}/init.vim ${HOME}/.vimrc
+
+
+# Neovim
 if [ ! -d ${XDG_CONFIG_HOME}/nvim ]; then
   mkdir -p ${XDG_CONFIG_HOME}/nvim
 fi
-ln -fsn $(pwd)/init.vim ${XDG_CONFIG_HOME}/nvim/init.vim
+ln -fsn ${SCRIPTPATH}/init.vim ${XDG_CONFIG_HOME}/nvim/init.vim
 
 
-#] latexmk
-ln -fsn $(pwd)/.latexmkrc ${HOME}/.latexmkrc
+# latexmk
+ln -fsn ${SCRIPTPATH}/.latexmkrc ${HOME}/.latexmkrc
 
 
-#] less command
+# less command
 if [ $(uname) = 'Linux' ]; then
-  ln -fsn $(pwd)/.lesskey ${HOME}/.lesskey
+  ln -fsn ${SCRIPTPATH}/.lesskey ${HOME}/.lesskey
 fi
 
 
 echo "Sorry, One operation is left."
 echo "Please add the following line to files such as '.bashrc':"
-echo "    source $(pwd)/shell_setting.sh"
+echo "    source ${SCRIPTPATH}/shell_setting.sh"

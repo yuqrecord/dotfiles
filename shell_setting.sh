@@ -149,6 +149,10 @@ fi
 [[ -d ~/.rbenv  ]] && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"
 
 
+#] Display matplotlib on Wezterm
+export MPLBACKEND='module://matplotlib-backend-wezterm'
+
+
 #] Settings for zsh
 if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
 
@@ -164,6 +168,9 @@ if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
   #] For complementing word in Git
   autoload -U compinit
   compinit -u
+
+  #] Getting rid of a slash from WORDCHARS
+  export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 #] Settings for bash
 elif [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'bash') ]; then

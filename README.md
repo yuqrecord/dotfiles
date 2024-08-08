@@ -28,6 +28,19 @@
 反映方法は以下の通り。
 1. `link_setting_files_in_windows.bat` を管理者として実行
 
+## ターミナルエミュレータ
+
+[wezterm](https://wezfurlong.org/wezterm/index.html)をインストールする。
+
+matplotlibの結果を表示するために次のコマンドを実行する。
+
+```
+pip install matplotlib-backend-wezterm
+export MPLBACKEND='module://matplotlib-backend-wezterm'
+```
+
+
+
 ## Python パッケージのインストール
 
 ```sh
@@ -40,3 +53,5 @@ pip install -r requirements_py.txt
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [universal-ctags](https://github.com/universal-ctags/ctags)
 - [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
+- [wezterm](https://wezfurlong.org/wezterm/index.html)
+- [starship](https://starship.rs/)

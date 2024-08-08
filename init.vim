@@ -307,6 +307,7 @@ let g:is_bash = 1
 
 "] Color scheme
 if has('nvim')
+  let g:hybrid_custom_term_colors = 1
   set background=dark
   colorscheme hybrid
   nnoremap <Leader>c :highlight Normal ctermbg=none<CR>:highlight CursorLine ctermbg=none<CR>

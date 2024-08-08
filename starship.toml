@@ -1,0 +1,5 @@
+follow_symlinks	= false
+
+[time]
+disabled = false
+time_format = "%R"
