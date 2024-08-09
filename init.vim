@@ -330,6 +330,14 @@ set cursorline
 "] No highliting the parenthis
 "let loaded_matchparen = 1
 
+"] Setting opacity of popuup windows
+if has('nvim')
+  set pumblend=20
+  set winblend=20
+endif
+
+
+
 
 "     ] ----------------------------------------------------------------------------------------------------------------------
 "2.1.2] Others
