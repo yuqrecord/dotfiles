@@ -2,56 +2,23 @@
 
 環境に依存しない設定を一元管理するためのリポジトリである。
 
+環境構築手順は[ココ](setup_manual.md)。
+
 ## 設定の反映
 
 ### Linux & Mac
 
-反映される設定は以下の通り。
-- bashrc
-- zshrc
-- Vim
-- Neovim
-- latexmk
-- lessコマンド
-
 反映方法は以下の通り。
 1. `.bashrc` と`.zshrc` に`source [このファイルが存在するディレクトリ]/shell_setting.sh` を追加
-1. `link_setting_files_in_unix.sh` を実行
+1. `setting_files_in_unix.sh` を実行
 
 ### Windows
 
-反映される設定は以下の通り。
-- Vim
-- Neovim
-- latexmk
-
 反映方法は以下の通り。
-1. `link_setting_files_in_windows.bat` を管理者として実行
-
-## ターミナルエミュレータ
-
-[wezterm](https://wezfurlong.org/wezterm/index.html)をインストールする。
-
-matplotlibの結果を表示するために次のコマンドを実行する。
-
-```
-pip install matplotlib-backend-wezterm
-export MPLBACKEND='module://matplotlib-backend-wezterm'
-```
-
-
+1. `setting_files_in_windows.bat` を管理者として実行
 
 ## Python パッケージのインストール
 
 ```sh
 pip install -r requirements_py.txt
 ```
-
-## インストールが必要なもの
-- [Neovim](https://neovim.io)
-- [MichaelMure/mdr](https://github.com/MichaelMure/mdr)
-- [vim-plug](https://github.com/junegunn/vim-plug)
-- [universal-ctags](https://github.com/universal-ctags/ctags)
-- [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
-- [wezterm](https://wezfurlong.org/wezterm/index.html)
-- [starship](https://starship.rs/)

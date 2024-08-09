@@ -13,7 +13,7 @@ config.font_size = 16.0
 
 
 -- Window opacity
-local window_background_opacity_init = 0.8
+local window_background_opacity_init = 1.0
 local window_background_opacity_step = 0.1
 wezterm.on('increase-opacity', function(window, pane)
   local overrides = window:get_config_overrides() or {}
