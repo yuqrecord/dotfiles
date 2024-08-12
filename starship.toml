@@ -1,5 +1,14 @@
+format = '$custom$all'
+
 follow_symlinks	= false
 
 [time]
 disabled = false
 time_format = "%R"
+
+[custom.wezterm]
+description = "Displays the value of the AA variable"
+command = "echo \"Pane-$WEZTERM_PANE\""
+when = "test -n \"$WEZTERM_PANE\""
+style = "bold fg:gray"
+format = "[$output]($style): "
