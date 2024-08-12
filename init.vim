@@ -105,6 +105,9 @@ Plug 'rust-lang/rust.vim'
 "] Markdown preview
 Plug 'skanehira/preview-markdown.vim'
 
+"] Markdown table of contents generator
+Plug 'mzlogin/vim-markdown-toc'
+
 "] Cursor motion
 Plug 'skanehira/jumpcursor.vim'
 
@@ -130,6 +133,12 @@ Plug 'JuliaEditorSupport/julia-vim'
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
 endif
+
+"] Tree sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+"] REPL
+Plug 'jpalardy/vim-slime'
 
 "] Complementation
 if has('nvim')
@@ -281,6 +290,12 @@ let g:user_emmet_leader_key = '<c-g>'
 
 let g:findroot_not_for_subdir = 0
 
+"     ] ----------------------------------------------------------------------------------------------------------------------
+"1.3.13] jpalardy/vim-slime
+"     ] ----------------------------------------------------------------------------------------------------------------------
+
+let g:slime_target="wezterm"
+
 
 " ] ==========================================================================================================================
 " ]
@@ -419,7 +434,7 @@ endif
 nnoremap <c-y> <c-l>
 
 "] Unset hilight of searched words
-nnoremap m :noh<CR>
+nnoremap <c-k><c-n> :noh<CR>
 
 "] Move from a window to another window
 "] <c-w>l: Right (default)
