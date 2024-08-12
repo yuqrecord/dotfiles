@@ -97,6 +97,15 @@ function create-ipynb() {
   rm -rf $temp_dir
 }
 
+#] Check shell.
+#] These functions should be deleted at the end of this script.
+function is_bash() {
+  [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'bash') ]
+}
+function is_zsh() {
+  [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]
+}
+
 
 
 #] Aliases
@@ -123,6 +132,9 @@ alias today='date "+%Y-%m-%d"'
 if [ $(uname) = 'Darwin' ]; then
   alias ctags='`brew --prefix`/bin/ctags'
   alias sed='gsed'
+fi
+if is_zsh; then
+  alias history="history -i -E 1"
 fi
 
 
@@ -152,52 +164,50 @@ fi
 #] Display matplotlib on Wezterm
 export MPLBACKEND='module://matplotlib-backend-wezterm'
 
-#] History size
+#] History setting
 export HISTSIZE=10000
+if is_zsh; then
+  export SAVEHIST=$HISTSIZE
+elif is_bash; then
+  export HISTTIMEFORMAT='%F %T '
+fi
 
-
-#] Settings for zsh
-if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
-
-  #] Do not kill process using ctrl-D
+#] Do not kill process using ctrl-D
+if is_zsh; then
   setopt ignoreeof
+elif is_bash; then
+  export IGNOREEOF=100
+fi
 
-  #] To use command 'r' for the programing langauge 'R'
-  disable r
-
-  #] Not beep
+#] Disable beep
+if is_zsh; then
   setopt no_beep
+elif is_bash; then
+  set bell-style none
+fi
 
-  #] For complementing word in Git
+#] Complementing word in Git
+if is_zsh; then
   autoload -U compinit
   compinit -u
-
-  #] Getting rid of a slash from WORDCHARS
-  export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
-
-  #] alias
-  alias history="history -i -E 1"
-  #] History size
-  export SAVEHIST=$HISTSIZE
-
-#] Settings for bash
-elif [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'bash') ]; then
-
-  #] Do not kill process using ctrl-D
-  export IGNOREEOF=100
-
-  #] history time format
-  export HISTTIMEFORMAT='%F %T '
-
-  #] Not beep
-  set bell-style none
-
-  #] For complementing word in Git
+elif is_bash; then
   if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
   fi
   if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
   fi
-
 fi
+
+#] To use command 'r' for the programing langauge 'R'
+if is_zsh; then
+  disable r
+fi
+
+#] Getting rid of a slash from WORDCHARS
+if is_zsh; then
+  export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
+fi
+
+unset -f is_bash
+unset -f is_zsh
