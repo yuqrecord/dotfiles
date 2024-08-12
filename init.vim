@@ -434,7 +434,7 @@ endif
 nnoremap <c-y> <c-l>
 
 "] Unset hilight of searched words
-nnoremap <c-k><c-n> :noh<CR>
+nnoremap m :noh<CR>
 
 "] Move from a window to another window
 "] <c-w>l: Right (default)
