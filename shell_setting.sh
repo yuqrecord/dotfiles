@@ -152,6 +152,9 @@ fi
 #] Display matplotlib on Wezterm
 export MPLBACKEND='module://matplotlib-backend-wezterm'
 
+#] History size
+export HISTSIZE=10000
+
 
 #] Settings for zsh
 if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
@@ -172,11 +175,19 @@ if [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'zsh') ]; then
   #] Getting rid of a slash from WORDCHARS
   export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
+  #] alias
+  alias history="history -i -E 1"
+  #] History size
+  export SAVEHIST=$HISTSIZE
+
 #] Settings for bash
 elif [ $(ps $$ | tail -n 1 | awk '{print $NF}' | grep 'bash') ]; then
 
   #] Do not kill process using ctrl-D
-  IGNOREEOF=100
+  export IGNOREEOF=100
+
+  #] history time format
+  export HISTTIMEFORMAT='%F %T '
 
   #] Not beep
   set bell-style none
