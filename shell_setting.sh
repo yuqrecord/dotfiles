@@ -160,6 +160,9 @@ fi
 #] Setting for rbenv
 [[ -d ~/.rbenv  ]] && export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"
 
+#] Setting for pkg-config
+export PKG_CONFIG_PATH="${HOME}/.local/lib/pkg-config"
+
 
 #] Display matplotlib on Wezterm
 export MPLBACKEND='module://matplotlib-backend-wezterm'
