@@ -134,9 +134,6 @@ if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
-"] Tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 "] REPL
 Plug 'jpalardy/vim-slime'
 
