@@ -6,6 +6,9 @@ follow_symlinks	= false
 disabled = false
 time_format = "%R"
 
+[hostname]
+ssh_only = false
+
 [custom.wezterm]
 description = "Displays the value of the AA variable"
 command = "echo \"Pane-$WEZTERM_PANE\""
