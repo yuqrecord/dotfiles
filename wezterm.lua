@@ -11,6 +11,14 @@ config.color_scheme = 'Hybrid (Gogh)'
 -- Font
 config.font_size = 16.0
 
+-- Concatinate PATH
+function concat_path(...)
+  local separator = package.config:sub(1,1)
+  local args = {...}
+  local path = table.concat(args, separator)
+  return path
+end
+
 
 -- Window opacity
 local window_background_opacity_init = 1.0
@@ -53,6 +61,12 @@ config.keys = {
     action = wezterm.action.DisableDefaultAssignment,
   },
 }
+
+-- SSH domains (read other files)
+local ret, ssh_domains = pcall(dofile, concat_path(os.getenv('HOME'), '.config', 'wezterm', 'ssh_domains.lua'))
+if ret then
+  config.ssh_domains = ssh_domains
+end
 
 -- Start up settings
 wezterm.on("gui-startup", function()
