@@ -32,6 +32,7 @@ require("lazy").setup({
     { import = "plugins.ui.winresizer" },
     { import = "plugins.ui.tagbar" },
     { import = "plugins.ui.indent-blankline" },
+    { import = "plugins.ui.noice" },
     -- Filer
     { import = "plugins.filer.nvim-tree" },
     -- Syntax
