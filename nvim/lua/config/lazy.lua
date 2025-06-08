@@ -47,7 +47,10 @@ require("lazy").setup({
     -- Rust
     { import = "plugins.languages.rust.rust-vim" },
     -- HTML
-    { import = "plugins.languages.html.emmet-vim" }
+    { import = "plugins.languages.html.emmet-vim" },
+    -- Copilot
+    { import = "plugins.copilot.copilot"},
+    { import = "plugins.copilot.CopilotChat" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
