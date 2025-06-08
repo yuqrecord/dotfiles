@@ -37,7 +37,7 @@ return {
         },
       },
       window = {
-        layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
+        layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
         width = 0.3,
         border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
       },

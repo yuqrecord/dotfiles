@@ -52,6 +52,8 @@ require("lazy").setup({
     -- Copilot
     { import = "plugins.copilot.copilot"},
     { import = "plugins.copilot.CopilotChat" },
+    -- Sub-mode
+    { import = "plugins.hydra" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
