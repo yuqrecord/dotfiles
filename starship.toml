@@ -15,3 +15,10 @@ command = "echo \"Pane-$WEZTERM_PANE\""
 when = "test -n \"$WEZTERM_PANE\""
 style = "bold fg:gray"
 format = "[$output]($style): "
+
+[python]
+python_binary = [
+  '/usr/bin/python3',  # 最優先
+  'python3',           # 次の候補
+  'python'             # 最後の候補
+]

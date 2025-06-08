@@ -11,6 +11,12 @@ local function augroup(name)
   return id
 end
 
+-- PATH of Python
+local python = "/usr/bin/python3"
+if vim.fn.executable(python) == 1 then
+  vim.g.python3_host_prog = python
+end
+
 -- Disable the default filer
 vim.api.nvim_set_var("loaded_netrw", 1)
 vim.api.nvim_set_var("loaded_netrwPlugin", 1)
