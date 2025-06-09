@@ -62,6 +62,9 @@ config.keys = {
   },
 }
 
+-- Disable audle bell
+config.audible_bell = 'Disabled'
+
 -- SSH domains (read other files)
 local ret, ssh_domains = pcall(dofile, concat_path(os.getenv('HOME'), '.config', 'wezterm', 'ssh_domains.lua'))
 if ret then
