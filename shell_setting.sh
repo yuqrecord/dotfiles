@@ -123,8 +123,8 @@ alias x='confirm_exit'
 alias exit='confirm_exit'
 alias vir='vim -R'
 alias duu='du -h --max-depth=1'
-alias python='python3 -B'
-alias py='python3 -B'
+alias python='python3'
+alias py='python3'
 alias grep='grep --color=auto'
 alias mps='ps aux | head -n 1 ; ps aux | grep $(whoami)'
 alias date8digits='date "+%Y%m%d"'
@@ -164,8 +164,6 @@ fi
 export PKG_CONFIG_PATH="${HOME}/.local/lib/pkg-config"
 
 
-#] Display matplotlib on Wezterm
-export MPLBACKEND='module://matplotlib-backend-wezterm'
 
 #] History setting
 export HISTSIZE=10000
