@@ -137,7 +137,6 @@ if is_zsh; then
   alias history="history -i -E 1"
 fi
 
-
 #] Setting of the path
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -209,6 +208,12 @@ fi
 if is_zsh; then
   export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 fi
+
+# Setting for WezTerm
+if [ "$TERM_PROGRAM" = "WezTerm" ]; then
+  alias imgcat='wezterm imgcat'
+fi
+
 
 unset -f is_bash
 unset -f is_zsh
