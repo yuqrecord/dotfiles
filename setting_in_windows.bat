@@ -15,3 +15,9 @@ mklink %USERPROFILE%\AppData\Local\nvim\init.vim %~dp0init.vim
 
 @rem ] latexmk
 mklink %USERPROFILE%\.latexmkrc %~dp0.latexmkrc
+
+@rem ] WezTerm
+if not exist %USERPROFILE%\.config\wezterm (
+  mkdir %USERPROFILE%\.config\wezterm
+)
+mklink %USERPROFILE%\.config\wezterm\wezterm.lua %~dp0wezterm.lua
