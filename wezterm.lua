@@ -62,6 +62,9 @@ config.keys = {
   },
 }
 
+-- Disable audle bell
+config.audible_bell = 'Disabled'
+
 -- SSH domains (read other files)
 local ok, ret = pcall(dofile, wezterm.config_dir .. '/ssh_domains.lua')
 if ok and type(ret) == 'table' then

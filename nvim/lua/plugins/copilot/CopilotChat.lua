@@ -37,7 +37,7 @@ return {
         },
       },
       window = {
-        layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
+        layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout
         width = 0.3,
         border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
       },
@@ -74,6 +74,11 @@ return {
           mapping = '<leader>cd',
           description = "コードのドキュメント作成をお願いする",
         },
+        DocsEng = {
+          prompt = "/COPILOT_GENERATE 選択したコードに関するdocstringをNumpyStyleで英語で生成してください。",
+          mapping = '<leader>cd',
+          description = "コードのドキュメント作成をお願いする",
+        },
         Tests = {
           prompt = "/COPILOT_TESTS 選択したコードの詳細なユニットテストを書いてください。説明は日本語でお願いします。",
           mapping = '<leader>ct',
@@ -87,7 +92,7 @@ return {
         -- },
         Commit = {
           prompt =
-            'ステージ済みの変更に対するコミットメッセージを日本語で記述してください。またタイトルの先頭にはadd:、change:、fix:のいずれかを付けてください。',
+            'ステージ済みの変更に対するコミットメッセージを日本語で記述してください。またタイトルの先頭にはadd:、del:、change:、fix:から適切なもの1個以上を付けてください。',
           description = "コミットメッセージの作成をお願いする",
           context = 'git:staged',
         },
