@@ -63,9 +63,9 @@ config.keys = {
 }
 
 -- SSH domains (read other files)
-local ret, ssh_domains = pcall(dofile, concat_path(os.getenv('HOME'), '.config', 'wezterm', 'ssh_domains.lua'))
-if ret then
-  config.ssh_domains = ssh_domains
+local ok, ret = pcall(dofile, wezterm.config_dir .. '/ssh_domains.lua')
+if ok and type(ret) == 'table' then
+  config.ssh_domains = ret
 end
 
 -- Start up settings
