@@ -35,10 +35,7 @@ ln -fsn ${SCRIPTPATH}/init.vim ${HOME}/.vimrc
 
 
 # Neovim
-if [ ! -d ${XDG_CONFIG_HOME}/nvim ]; then
-  mkdir -p ${XDG_CONFIG_HOME}/nvim
-fi
-ln -fsn ${SCRIPTPATH}/init.lua ${XDG_CONFIG_HOME}/nvim/init.lua
+ln -fsn ${SCRIPTPATH}/nvim ${XDG_CONFIG_HOME}/nvim
 
 
 # latexmk
