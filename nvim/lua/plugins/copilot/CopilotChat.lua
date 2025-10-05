@@ -96,6 +96,12 @@ return {
           description = "コミットメッセージの作成をお願いする",
           context = 'git:staged',
         },
+        CommitEn = {
+          prompt =
+            'Please write a commit message in English for the staged changes. Also, at the beginning of the title, add one or more appropriate tags from add:, del:, change:, or fix:.',
+          description = "Request to create a commit message.",
+          context = 'git:staged',
+        },
       },
     },
     -- See Commands section for default commands if you want to lazy load on them
