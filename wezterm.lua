@@ -5,6 +5,12 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 
+-- Default shell for WindowsOS
+if wezterm.target_triple:find('windows') then
+  -- Use PowerShell as the default shell
+  config.default_prog = { 'powershell.exe', '-NoLogo' }
+end
+
 -- Color scheme
 config.color_scheme = 'Hybrid (Gogh)'
 
