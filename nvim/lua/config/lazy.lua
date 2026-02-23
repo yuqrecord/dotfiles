@@ -36,7 +36,7 @@ require("lazy").setup({
     -- Filer
     { import = "plugins.filer.nvim-tree" },
     -- Syntax
-    { import = "plugins.syntax.nvim-treesitter" },
+    -- { import = "plugins.syntax.nvim-treesitter" },
     -- Commenting
     { import = "plugins.commenting.Comment" },
     -- Git
