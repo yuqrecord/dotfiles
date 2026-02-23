@@ -51,6 +51,7 @@ end)
 
 -- Keybindings
 config.keys = {
+  -- ALT + 1 to decrease opacity, ALT + 2 to increase opacity
   {
     key = '1',
     mods = 'ALT',
@@ -61,6 +62,13 @@ config.keys = {
     mods = 'ALT',
     action = wezterm.action.EmitEvent 'increase-opacity',
   },
+  -- CTRL + SHIFT + K to open the launcher
+  {
+    key = 'K',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ShowLauncher,
+  },
+  -- Disable CTRL + - to prevent zooming out
   {
     key = '-',
     mods = 'CTRL',
@@ -72,10 +80,14 @@ config.keys = {
 config.audible_bell = 'Disabled'
 
 -- SSH domains (read other files)
+local domains = wezterm.default_ssh_domains()
 local ok, ret = pcall(dofile, wezterm.config_dir .. '/ssh_domains.lua')
 if ok and type(ret) == 'table' then
-  config.ssh_domains = ret
+  for _, d in ipairs(ret) do
+    table.insert(domains, d)
+  end
 end
+config.ssh_domains = domains
 
 -- Start up settings
 wezterm.on("gui-startup", function()
