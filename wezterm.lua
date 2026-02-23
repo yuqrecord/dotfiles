@@ -89,6 +89,12 @@ if ok and type(ret) == 'table' then
 end
 config.ssh_domains = domains
 
+wezterm.on("update-status", function(window, pane)
+  local domain = pane:get_domain_name() or pane.domain_name or "?"
+  local ws = window:active_workspace()
+  window:set_left_status(string.format("D: %s  W: %s ", domain, ws))
+end)
+
 -- Start up settings
 wezterm.on("gui-startup", function()
   local tab, pane, window = mux.spawn_window(cmd or {})
