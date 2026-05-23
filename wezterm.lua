@@ -5,6 +5,9 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 
+-- Enable IME support
+config.use_ime = true
+
 -- Default shell for WindowsOS
 if wezterm.target_triple:find('windows') then
   -- Use PowerShell as the default shell
