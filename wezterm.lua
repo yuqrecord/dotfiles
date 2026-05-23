@@ -92,6 +92,7 @@ if ok and type(ret) == 'table' then
 end
 config.ssh_domains = domains
 
+-- Status bar
 wezterm.on("update-status", function(window, pane)
   local domain = pane:get_domain_name() or pane.domain_name or "?"
   local ws = window:active_workspace()
