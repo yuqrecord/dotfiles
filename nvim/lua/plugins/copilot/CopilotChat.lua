@@ -19,7 +19,8 @@ return {
     },
     opts = {
       -- See Configuration section for options
-      debug = true, -- Set to true to enable debug logging
+      debug = false, -- Set to true to enable debug logging
+      model = 'claude-sonnet-4.6',
       mappings = {
         complete = {
           insert = '',
@@ -31,10 +32,10 @@ return {
           normal = '',
           insert = '',
         },
-        submit_prompt = {
-          insert = '<C-Enter>',
-          normal = '<C-Enter>',
-        },
+        -- submit_prompt = {
+        --   insert = '<C-Enter>',
+        --   normal = '<C-Enter>',
+        -- },
       },
       window = {
         layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace', or a function that returns the layout

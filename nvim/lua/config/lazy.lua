@@ -36,7 +36,8 @@ require("lazy").setup({
     -- Filer
     { import = "plugins.filer.nvim-tree" },
     -- Syntax
-    -- { import = "plugins.syntax.nvim-treesitter" },
+    { import = "plugins.syntax.nvim-treesitter" },
+    { import = "plugins.syntax.nvim-treesitter-context" },
     -- Commenting
     { import = "plugins.commenting.Comment" },
     -- Git
@@ -49,11 +50,15 @@ require("lazy").setup({
     { import = "plugins.languages.rust.rust-vim" },
     -- HTML
     { import = "plugins.languages.html.emmet-vim" },
+    -- Jupyter
+    { import = "plugins.jupyter.jupytext" },
     -- Copilot
     { import = "plugins.copilot.copilot"},
     { import = "plugins.copilot.CopilotChat" },
     -- Sub-mode
     { import = "plugins.hydra" },
+    -- Tag
+    { import = "plugins.tag.aerial" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
