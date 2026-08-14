@@ -30,7 +30,6 @@ require("lazy").setup({
     -- UI
     { import = "plugins.ui.vim-airline" },
     { import = "plugins.ui.winresizer" },
-    { import = "plugins.ui.tagbar" },
     { import = "plugins.ui.indent-blankline" },
     { import = "plugins.ui.noice" },
     -- Filer
