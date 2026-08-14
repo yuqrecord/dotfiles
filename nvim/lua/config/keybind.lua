@@ -6,25 +6,6 @@ local opts = { noremap = true, silent = true }
 local map  = vim.keymap.set        -- 省略記法
 
 ---------------------------------------------------------------------------
--- Terminal を開く
----------------------------------------------------------------------------
--- 横 split
-map('n', '<Leader>ts', function()
-  vim.cmd('split | terminal')
-  vim.cmd('startinsert')
-end, opts)
--- 縦 split
-map('n', '<Leader>tv', function()
-  vim.cmd('vsplit | terminal')
-  vim.cmd('startinsert')
-end, opts)
--- 新しいタブ
-map('n', '<Leader>tt', function()
-  vim.cmd('tab split | terminal')
-  vim.cmd('startinsert')
-end, opts)
-
----------------------------------------------------------------------------
 -- Normal モード
 ---------------------------------------------------------------------------
 map('n', '<C-y>', '<C-l>', opts)           -- 画面再描画
