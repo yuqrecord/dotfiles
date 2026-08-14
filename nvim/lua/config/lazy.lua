@@ -36,6 +36,8 @@ require("lazy").setup({
     -- Filer
     { import = "plugins.filer.nvim-tree" },
     { import = "plugins.filer.oil" },
+    -- Finder
+    { import = "plugins.finder.telescope" },
     -- Syntax
     { import = "plugins.syntax.nvim-treesitter" },
     { import = "plugins.syntax.nvim-treesitter-context" },

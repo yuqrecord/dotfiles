@@ -20,7 +20,7 @@ local float_move = Hydra({
 })
 
 -- ❷ フロート判定してから activate
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<leader>m", function()
   if vim.api.nvim_win_get_config(0).relative ~= "" then
     float_move:activate()          -- いまのフロートで Hydra開始
   else
