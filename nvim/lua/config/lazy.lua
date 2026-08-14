@@ -35,6 +35,7 @@ require("lazy").setup({
     { import = "plugins.ui.noice" },
     -- Filer
     { import = "plugins.filer.nvim-tree" },
+    { import = "plugins.filer.oil" },
     -- Syntax
     { import = "plugins.syntax.nvim-treesitter" },
     { import = "plugins.syntax.nvim-treesitter-context" },
