@@ -9,17 +9,17 @@ local map  = vim.keymap.set        -- 省略記法
 -- Terminal を開く
 ---------------------------------------------------------------------------
 -- 横 split
-vim.keymap.set('n', '<Leader>ts', function()
+map('n', '<Leader>ts', function()
   vim.cmd('split | terminal')
   vim.cmd('startinsert')
 end, opts)
 -- 縦 split
-vim.keymap.set('n', '<Leader>tv', function()
+map('n', '<Leader>tv', function()
   vim.cmd('vsplit | terminal')
   vim.cmd('startinsert')
 end, opts)
 -- 新しいタブ
-vim.keymap.set('n', '<Leader>tt', function()
+map('n', '<Leader>tt', function()
   vim.cmd('tab split | terminal')
   vim.cmd('startinsert')
 end, opts)
@@ -37,10 +37,11 @@ map('n', '<C-w>i', '<C-w>k', opts)
 map('n', '<C-w>h', '<C-w>i', opts)         -- 縦 split との整合
 
 -- カーソル下単語を新規タブで定義ジャンプ
-map('n', '<C-h>', function()
-  vim.cmd('tab sp')
-  vim.cmd('tjump ' .. vim.fn.expand('<cword>'))
-end, opts)
+map("n", "<C-h>", function()
+  require("telescope.builtin").lsp_definitions()
+end, {
+  desc = "Go to definition",
+})
 
 -- タブ移動
 map('n', '<C-p>', 'gT', opts)

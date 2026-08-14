@@ -41,6 +41,8 @@ require("lazy").setup({
     -- Syntax
     { import = "plugins.syntax.nvim-treesitter" },
     { import = "plugins.syntax.nvim-treesitter-context" },
+    -- LSP
+    { import = "plugins.lsp.mason-lspconfig" },
     -- Commenting
     { import = "plugins.commenting.Comment" },
     -- Git
