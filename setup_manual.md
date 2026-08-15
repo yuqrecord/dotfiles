@@ -18,6 +18,8 @@
 * [ripgrep](#ripgrep)
 * [universal-ctags](#universal-ctags)
 * [php-cs-fixer](#php-cs-fixer)
+* [Tree-sitter CLI](#tree-sitter-cli)
+* [cargo-binstall](#cargo-binstall)
 
 <!-- vim-markdown-toc -->
 
@@ -173,3 +175,17 @@ grepコマンドの代替。cargoによりインストール可能。コマン�
 [https://github.com/PHP-CS-Fixer/PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
 
 PHPファイル整形プログラム。
+
+
+## Tree-sitter CLI
+
+[https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
+
+パーサー。Neovimのプラグインで利用する。
+
+
+## cargo-binstall
+
+[https://github.com/cargo-bins/cargo-binstall](https://github.com/cargo-bins/cargo-binstall)
+
+carogoのバイナリインストールツール。cargo installよりも高速にインストール可能。
